@@ -1,0 +1,16 @@
+---
+title: "All Does"
+---
+<div class="row">
+    {% for doe in site.data.does %}
+    <div class="col-md-3" itemscope itemtype="http://schema.org/Thing">
+        <a href="#">
+            {% if doe.PhotoLink != null and doe.PhotoLink != "" %}
+            <img src="../img/{{ doe.PhotoLink | first}}" class="img-responsive" itemprop="photo" alt="Photo of {{doe.FullName }}" />
+            {% else %}
+            <img src="../img/placeholder.jpg" class="img-responsive" itemprop="photo" alt="Placeholder image for {{doe.FullName}}" />
+            {% endif %}
+            <h4 itemprop="name">{{ doe.FullName }}</h4>
+        </a>    </div>
+    {% endfor %}
+</div>
