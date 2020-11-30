@@ -1,0 +1,18 @@
+---
+layout: main
+---
+<div itemscope itemtype="http://schema.org/Thing">
+    {% if page.SalePrice != null and page.SalePrice != "" %}
+    <h5 class="alert alert-warning text-center">
+        This goat is for sale! You can own her for a meager <span itemprop="price">{{ page.SalePrice }}</span>.
+        <br />
+        Be sure to <a href="/contact.html">contact us</a> if you are interested.
+    </h5>
+    {% endif %}
+
+    <ul>
+        <li>{{ page.RegistryNumber }}</li>
+        <li>{{ page.FullName }}</li>
+        <li>{{ page.foo }}</li>
+    </ul>
+</div>

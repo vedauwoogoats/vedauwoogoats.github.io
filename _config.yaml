@@ -26,6 +26,9 @@ github_username:  ""
 
 # Build settings
 markdown: kramdown
+plugins:
+  - jekyll-datapage-generator
+  - jekyll-redirect-from
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -47,3 +50,8 @@ defaults:
     values:
       layout: "main"
       title: Vedauwoo Goats
+
+page_gen:
+  - data: "does"
+    name: "RegistryNumber"
+    debug: true
