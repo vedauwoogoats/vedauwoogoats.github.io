@@ -10,9 +10,15 @@ layout: main
     </h5>
     {% endif %}
 
+    <h2 class="text-center text-primary" itemprop="name">{{ page.FullName }}</h2>
+    <div class="row">
+        <div class="col-md-5">
+            {% include imagecarousel.html %}
+        </div>
+    </div>
+
     <ul>
         <li>{{ page.RegistryNumber }}</li>
         <li>{{ page.FullName }}</li>
-        <li>{{ page.foo }}</li>
     </ul>
 </div>
