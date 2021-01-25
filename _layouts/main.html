@@ -95,6 +95,39 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
     integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
     crossorigin="anonymous"></script>
+
+        <!-- Simple Analytics -->
+        <script type='text/javascript'>
+          // Enables analytics IF AND ONLY IF user does not send a DNT request
+          // Shamelessly stolen from https://dev.to/spekulatius1984/how-to-check-do-not-track-dnt-in-javascript-57g1
+          let dntActive = () => {
+          // get the value from the various browser implementations.
+          let dnt_active = parseInt(
+              // Internet Explorer 9 and 10 vendor prefix
+              navigator.msDoNotTrack ||
+
+              // IE 11 uses window.doNotTrack
+              window.doNotTrack ||
+
+              // W3C
+              navigator.doNotTrack,
+              10
+          );
+
+          // If this comes to exactly 1 DNT is set.
+          return (dnt_active === 1);
+          }
+
+          // Check if DNT is active.
+          if (dntActive()) {
+          // active
+          console.log("Simple Analytics has been disabled due to user's Do Not Track request")
+          } else {
+          // inactive
+          console.log("Simple Analytics is active")
+          document.write("<script async defer src=\"https://scripts.simpleanalyticscdn.com/latest.js\"><\/script>")
+          }
+      </script>
 </body>
 
 </html>
