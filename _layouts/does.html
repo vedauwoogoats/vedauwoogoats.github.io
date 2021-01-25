@@ -1,34 +1,45 @@
 ---
 layout: main
 ---
-<div itemscope itemtype="http://schema.org/Thing">
-    {% if page.SalePrice != null and page.SalePrice != "" %}
-    <h5 class="alert alert-warning text-center">
-        This goat is for sale! You can own her for a meager <span itemprop="price">{{ page.SalePrice }}</span>.
-        <br />
-        Be sure to <a href="/contact.html">contact us</a> if you are interested.
-    </h5>
-    {% endif %}
 
-    <h2 class="text-center text-primary" itemprop="name">{{ page.FullName }}</h2>
-    <div class="row">
-        <div class="col-md-5">
-            {% include imagecarousel.html %}
-        </div>
-        <div class="col-md-7">
-            <h4>
-                <span>{{ page.Breed }}</span>
-                |
-                <span itemprop="identifier">{{ page.RegistryNumber }}</span>
-                |
-                <span>{{ page.BirthDate | date: '%B %d, %Y' }}</span>
-            </h4>
-            {{ page.Description | markdownify }}
+{% include goatdetails.html %}
+
+<h3 class="text-success text-center">Breeding Information</h3>
+<div class="row">
+    <div class="col-md-offset-2 col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">Bred to</h4>
+            </div>
+            <div class="panel-body">
+                <h5>
+                    {{ page.MateName }}
+                    <br />
+                    {{ page.MateNumber }}
+                </h5>
+            </div>
         </div>
     </div>
-
-    <ul>
-        <li>{{ page.RegistryNumber }}</li>
-        <li>{{ page.FullName }}</li>
-    </ul>
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">Kidding</h4>
+            </div>
+            <div class="panel-body">
+                <dl>
+                    <dt>Bred on</dt>
+                    <dd>{{ page.BreedingDate }}</dd>
+                    <dt>Expected Kidding Date</dt>
+                    <dd>{{ page.KiddingDate }}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
 </div>
+
+{% include goatpedigree.html %}
+
+<hr />
+<p>
+    <a class="btn btn-primary" href="/does.html">&laquo; All Does</a>
+</p>

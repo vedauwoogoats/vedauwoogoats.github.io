@@ -1,0 +1,46 @@
+<div itemscope itemtype="http://schema.org/Thing">
+    {% if page.SalePrice != null and page.SalePrice != "" %}
+    <h5 class="alert alert-warning text-center">
+        This goat is for sale! You can own her for a meager <span itemprop="price">{{ page.SalePrice }}</span>.
+        <br />
+        Be sure to <a href="/contact.html">contact us</a> if you are interested.
+    </h5>
+    {% endif %}
+
+    <h2 class="text-center text-primary" itemprop="name">{{ page.FullName }}</h2>
+    <div class="row">
+        <div class="col-md-5">
+            {% include imagecarousel.html %}
+        </div>
+        <div class="col-md-7">
+            <h4>
+                <span>{{ page.Breed }}</span>
+                |
+                <span itemprop="identifier">{{ page.RegistryNumber }}</span>
+                |
+                <span>{{ page.BirthDate | date: '%B %d, %Y' }}</span>
+            </h4>
+
+            {{ page.Description | markdownify }}
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h5>Show Placings</h5></div>
+                        <div class="panel-body">
+                            {{ page.ShowPlacings | markdownify }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h5>Linear Appraisals</h5></div>
+                        <div class="panel-body">
+                            {{ page.LinearAppraisals | markdownify }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
